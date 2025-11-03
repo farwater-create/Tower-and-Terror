@@ -14,7 +14,7 @@ jobs:
 
       - name: Create ZIP archive
         run: |
-          zip -r repo.zip .
+          zip -r TowerAndTerror.zip .
 
       - name: Create GitHub Release
         id: create_release
