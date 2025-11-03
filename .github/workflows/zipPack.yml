@@ -8,13 +8,17 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Generate tag name
+        id: tag
+        run: echo "TAG=auto-${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       - name: Create ZIP archive
-        run: |
-          zip -r TowerAndTerror.zip .
+        run: zip -r TowerAndTerror.zip .
 
       - name: Create GitHub Release
         id: create_release
@@ -22,8 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          tag_name: ${{ env.TAG }}
+          release_name: Release ${{ env.TAG }}
           draft: false
           prerelease: false
 
@@ -36,3 +40,4 @@ jobs:
           asset_path: ./TowerAndTerror.zip
           asset_name: TowerAndTerror.zip
           asset_content_type: application/zip
+          
