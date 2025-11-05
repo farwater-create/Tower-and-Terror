@@ -5,5 +5,7 @@
   "gateways.basic_explosives": "Rudimentary Explosives",
   "gateways.basic_health_items": "Crude Medical Supplies",
   "gateways.endless/foodbasic": "Forbidden Kitchen",
-  "gateways.endless/starter_ores": "Shallow Mines"
+  "gateways.endless/starter_ores": "Shallow Mines",
+  "gateways.copper_blueprint: "Challange of Rust Ridge",
+  "gateways.iron_blueprint": "Federal Gauntlet"
 }
